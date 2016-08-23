@@ -24,7 +24,7 @@ response.each_with_index do |r, idx|
   print "#{idx} out of #{response.length}\r"
   $stdout.flush
 
-  rest = Restaurant.find_or_create_by(
+  rest = Restaurant.find_or_create_by!(
                       name: r.name,
                       address: r.address,
                       city: r.city.titleize,
@@ -32,7 +32,7 @@ response.each_with_index do |r, idx|
                       phone: r.phone
                       )
   
-  this_inspection = rest.inspections.find_or_create_by(
+  this_inspection = rest.inspections.find_or_create_by!(
                           date: r.inspection_date,
                           score: r.inspection_score.to_i,
                           result: r.inspection_result
@@ -40,7 +40,7 @@ response.each_with_index do |r, idx|
 
  
   if r.violation_type
-    this_inspection.violations.create(color: r.violation_type,
+    this_inspection.violations.create!(color: r.violation_type,
                             description: r.violation_description)
   end
 
