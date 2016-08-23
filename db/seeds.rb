@@ -27,15 +27,15 @@ response.each do |r|
 
   rest = Restaurant.find_by(name: r.name)
   unless Inspection.find_by(date: r.inspection_date, restaurant_id: rest.id)
-    this_inspection = rest.inspections.create(date: r.inspection_date,
+  rest.inspections.create(date: r.inspection_date,
                           score: r.inspection_score.to_i,
                           result: r.inspection_result
     )
   end
-
+  this_inspection = Inspection.find_by(date: r.inspection_date, restaurant_id: rest.id)
   if r.violation_type
     this_inspection.violations.create(color: r.violation_type,
                             description: r.violation_description)
   end
-  
+
 end
