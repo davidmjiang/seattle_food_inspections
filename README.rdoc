@@ -1,28 +1,15 @@
-== README
+Seattle Food Inspection Data by David Jiang
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Link to deployed version: https://fast-garden-63441.herokuapp.com/
 
-Things you may want to cover:
+About
 
-* Ruby version
+This project uses the King County Open Data API, specifically Food Establishment Inspection Data. The application includes data for all inspections for food service establishments in Seattle from August 23, 2014 to present. 
 
-* System dependencies
+How to Use
 
-* Configuration
+On the home page, you will have several options to search and filter results. Using the search bar. You can enter terms in the search bar, specify the number of results you would like to get back and whether they should be sorted in ascending or descending order.
 
-* Database creation
+Results will appear with the restaurant name and its average score from inspections beginning in August 2014.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Clicking on a restaurant will provide more information, including its address, phone number, inspection history and number of violations.
