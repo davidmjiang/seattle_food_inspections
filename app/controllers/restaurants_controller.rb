@@ -12,5 +12,6 @@ class RestaurantsController < ApplicationController
 
   def show
     @rest = Restaurant.find_by_id(params[:id])
+    @url = "https://maps.googleapis.com/maps/api/staticmap?center=#{@rest.latitude},#{@rest.longitude}&zoom=15&size=500x400&markers=color:blue|#{@rest.latitude},#{@rest.longitude}|&key=#{ENV['GOOGLE_MAPS_API_KEY']}"
   end
 end

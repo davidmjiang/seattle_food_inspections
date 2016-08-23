@@ -29,7 +29,9 @@ response.each_with_index do |r, idx|
                       address: r.address,
                       city: r.city.titleize,
                       zip: r.zip_code,
-                      phone: r.phone
+                      phone: r.phone,
+                      latitude: r.latitude,
+                      longitude: r.longitude
                       )
   
   this_inspection = rest.inspections.find_or_create_by(
