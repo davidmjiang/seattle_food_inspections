@@ -1,0 +1,16 @@
+<h1><%= @rest.name %></h1>
+<p><%= @rest.make_address %></p>
+<p><%= @rest.phone %></p>
+
+<h2>Inspections</h2>
+<% @rest.inspections.each do |i| %>
+  <p> <%= i.date %>: <%= i.score %> (<%= i.result %>) </p>
+<% end %>
+
+<h2>Violations (<%= @rest.violation_count %>)</h2>
+<p><span class = "red">Red violations</span> = Violations representing the highest risk of food borne disease.<p>
+<p><span class ="blue"> Blue violations</span> = Violations relating to the maintenance and cleanliness of the establishment.</p>
+<hr>
+<% @rest.violation_collection.each do |v| %>
+<p class="<%= v.color %>"> <%= v.v_date%> </p>
+<% end %>

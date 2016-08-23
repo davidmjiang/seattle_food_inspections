@@ -1,0 +1,27 @@
+<div class ="panel panel-default">
+  <div class="panel-body">
+    <h4>This site lists inspection scores for food service establishments in Seattle, from August 23, 2014 to present. <br> Points are given depending on the severity of violations. Visit <%= link_to "King County's Public Health Website", "http://www.kingcounty.gov/healthservices/health/ehs/foodsafety/inspections.aspx" %> for more information about the food inspection reporting system.</h4>
+  </div>
+  <div class="panel-body">
+    <%= form_tag restaurants_path, :method => 'get', class: "navbar-form search-bar", role: "search" do %>
+    <%= text_field_tag :query, "", class: "form-control search-bar", role: "search", placeholder: "Search for restaurants" %><br>
+    <%= label_tag(:sort, "Order by:") %><br>
+    <%= radio_button_tag(:sort, "descending") %>
+    <%= label_tag(:sort_asc, "Highest scores (most violations)") %>
+    <%= radio_button_tag(:sort, "ascending") %>
+    <%= label_tag(:sort_asc, "Lowest scores (least violations)") %><br>
+    <%= label_tag(:limit, "Number of results:") %>
+    <%= number_field_tag(:limit, 10, in: 5..40) %>
+    <%= submit_tag("Search") %>
+    <% end %>
+  </div>
+</div>
+
+<ul>
+  <% @restaurants.each do |r| %>
+  <li>
+    <p><%= link_to r.name, r %> <%= r.average_score %></p>
+  </li>
+  <% end %>
+</ul>
+    
